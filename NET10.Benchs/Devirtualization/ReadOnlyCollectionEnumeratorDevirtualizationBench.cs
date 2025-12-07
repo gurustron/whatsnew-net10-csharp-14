@@ -3,6 +3,7 @@ using BenchmarkDotNet.Attributes;
 
 namespace NET10.Benchs.Devirtualization;
 
+[MemoryDiagnoser]
 [HideColumns("Job", "Error", "StdDev", "Median", "RatioSD")]
 public class ReadOnlyCollectionEnumeratorDevirtualizationBench
 {
