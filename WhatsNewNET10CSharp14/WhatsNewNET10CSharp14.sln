@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsNewCSharp14", "WhatsNewCSharp14.csproj", "{DFC61603-0925-4588-BDCA-AD00500FA771}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsNewNET10", "..\WhatsNewNET10\WhatsNewNET10.csproj", "{F76B3105-0B40-44A8-9920-083D7B6695EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{B85EEB5B-2B5F-422B-9A41-35A2B284E3E6}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+		..\.gitignore = ..\.gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFC61603-0925-4588-BDCA-AD00500FA771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFC61603-0925-4588-BDCA-AD00500FA771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFC61603-0925-4588-BDCA-AD00500FA771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC61603-0925-4588-BDCA-AD00500FA771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F76B3105-0B40-44A8-9920-083D7B6695EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76B3105-0B40-44A8-9920-083D7B6695EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76B3105-0B40-44A8-9920-083D7B6695EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76B3105-0B40-44A8-9920-083D7B6695EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
