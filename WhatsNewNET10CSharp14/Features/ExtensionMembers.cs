@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Numerics;
 
 namespace WhatsNewCSharp14.Features;
 
@@ -13,27 +14,51 @@ public static class ExtensionMembers
         // public int DoSomething() => 42;
     }
 
-    extension(int name) 
+    extension(long) 
     {
-        // Type 'MyExtensionMembers' already defines a member called 'DoSomething' with the same parameter types
-        // public int DoSomething() => name;
+        // Type 'ExtensionMembers' already defines a member called
+        // 'DoSomething' with the same parameter types
+        // public static long DoSomething() => 42; // will not compile
     }
-
     // static and instance
     extension(long name /*named receiver parameter*/) 
     {
-        // Type 'MyExtensionMembers' already defines a member called 'DoSomething' with the same parameter types
-        // public static long DoSomething() => 42;
+        // Type 'MyExtensionMembers' already defines a member called 'DoSomething'
+        // with the same parameter types
+        public long DoSomething() => name;
         public static long DoSomethingLong() => 42;
-        public long DoSomethingInstance() => name; // 42L.DoSomethingInstance(), no 
+        public long DoSomethingInstance() => name; // 42L.DoSomethingInstance()
+    }
+
+    extension(int name /*named receiver parameter*/) 
+    {
+        // Type 'MyExtensionMembers' already defines a member called 'DoSomething'
+        // with the same parameter types
+        // public int DoSomething() => name;
     }
 
     public static IEnumerable<TResult> Cast<TResult>(this IEnumerable source) => throw new Exception();
 }
 
+public static class ExtensionProps
+{
+    extension(object val)
+    {
+        public bool Value => val is IEnumerable<int>;
+
+        public int Test
+        {
+            get
+            {
+                return 42;
+            }
+            set { Console.WriteLine(value); }
+        }
+    }
+}
 public static class E
 {
-    extension<T>(T[] ts)
+    extension<T>(T[] ts) // can apply generic constraints for T
     {
         // It is an error for members to declare type parameters or parameters
         // (as well as local variables and local functions directly within the member body)
@@ -49,6 +74,18 @@ public static class E
         {
             // ts(); // Error: Method, delegate, or event is expected
             // T(ts); // Error: T is a type parameter
+        } 
+    }
+
+    extension<T>(T) where T : INumber<T>
+    {
+        public static IEnumerable<T> FromOne(int count)
+        {
+            var start = T.One;
+            for (int i = 0; i < count; i++)
+            {
+                yield return start++;
+            }
         } 
     }
 }

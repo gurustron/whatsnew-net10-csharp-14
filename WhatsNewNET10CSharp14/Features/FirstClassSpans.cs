@@ -6,7 +6,7 @@ public class FirstClassSpans
 {
     public static void Do()
     {
-        // Rider provides warning:
+        // Rider provides a warning:
         // The resolution for this invocation has changed in C# 14
         // due to a breaking change in overload resolution with spans.
         // This can cause runtime exceptions when compiled with interpretation.
