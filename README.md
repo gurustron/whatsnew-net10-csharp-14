@@ -1,1 +1,2 @@
-# whatsnew-net10-csharp-14
+# What's new in .NET 10 and C#14
+
