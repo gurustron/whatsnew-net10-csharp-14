@@ -7,16 +7,18 @@
    can now be used on the left hand side of an assignment or compound assignment.
 2. Lambda parameters improvements 
 3. New partial members - ctors and events
-4. Extension members
-5. Field Keyword
-6. User Defined Compound Assignment
+4. Field Keyword
+5. User Defined Compound Assignment
+6. Extension members
+
 
 ### Performance improvements
 
 1. Stackalloc
 2. Devirtualization
 3. Bounds checking
-   1. Cloning
+   1. Readme.md
+   2. Cloning
       ```csharp
        private int[] _arr = new int[16];
 

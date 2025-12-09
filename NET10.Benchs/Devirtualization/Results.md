@@ -224,6 +224,186 @@ M01_L05:
 ; Total bytes of code 174
 ```
 
+#### EnumerableDevirtualizationBenchs
+
+```assembly
+; NET10.Benchs.Devirtualization.EnumerableDevirtualizationBenchs.Sum(System.Collections.Generic.IEnumerable`1<Int32>)
+       push      rbp
+       push      rbx
+       push      rax
+       lea       rbp,[rsp+10]
+       xor       ebx,ebx
+       mov       rax,offset MT_System.Int32[]
+       cmp       [rdi],rax
+       jne       short M01_L03
+       mov       eax,[rdi+8]
+       xor       ecx,ecx
+       test      eax,eax
+       je        short M01_L01
+M01_L00:
+       cmp       ecx,eax
+       jae       short M01_L02
+       mov       edx,ecx
+       add       ebx,[rdi+rdx*4+10]
+       inc       ecx
+       cmp       ecx,eax
+       jb        short M01_L00
+M01_L01:
+       mov       eax,ebx
+       add       rsp,8
+       pop       rbx
+       pop       rbp
+       ret
+M01_L02:
+       mov       edi,ecx
+       call      qword ptr [73A07F5ACD80]
+       int       3
+M01_L03:
+       mov       r11,73A07DA504D8
+       call      qword ptr [r11]
+       mov       rdi,rax
+       mov       [rbp-10],rdi
+M01_L04:
+       mov       rdi,[rbp-10]
+       mov       r11,[rdi]
+       mov       r11,73A07DA504E0
+       call      qword ptr [r11]
+       test      eax,eax
+       je        short M01_L05
+       mov       rdi,[rbp-10]
+       mov       r11,73A07DA504E8
+       call      qword ptr [r11]
+       add       eax,ebx
+       mov       ebx,eax
+       jmp       short M01_L04
+M01_L05:
+       mov       rdi,[rbp-10]
+       mov       r11,73A07DA504F0
+       call      qword ptr [r11]
+       jmp       short M01_L01
+       push      rax
+       cmp       qword ptr [rbp-10],0
+       je        short M01_L06
+       mov       rdi,[rbp-10]
+       mov       r11,73A07DA504F0
+       call      qword ptr [r11]
+M01_L06:
+       nop
+       add       rsp,8
+       ret
+; Total bytes of code 185
+```
+
+
+```assembly
+; NET10.Benchs.Devirtualization.EnumerableDevirtualizationBenchs.Sum(System.Collections.Generic.IEnumerable`1<Int32>)
+       push      rbp
+       push      r15
+       push      r14
+       push      rbx
+       sub       rsp,18
+       lea       rbp,[rsp+30]
+       mov       [rbp-30],rsp
+       xor       ebx,ebx
+       mov       r11,704F42E504D8
+       call      qword ptr [r11]
+       mov       rdi,rax
+       mov       [rbp-20],rdi
+M01_L00:
+       mov       r15,[rdi]
+       mov       r14,offset MT_System.SZGenericArrayEnumerator<System.Int32>
+       cmp       r15,r14
+       jne       short M01_L04
+       mov       eax,[rdi+8]
+       inc       eax
+       cmp       eax,[rdi+0C]
+       jae       short M01_L02
+       mov       [rdi+8],eax
+       mov       ecx,[rdi+8]
+       cmp       ecx,[rdi+0C]
+       jae       short M01_L03
+       mov       rax,[rdi+10]
+       cmp       ecx,[rax+8]
+       jae       short M01_L05
+       mov       r15d,[rax+rcx*4+10]
+M01_L01:
+       add       ebx,r15d
+       jmp       short M01_L00
+M01_L02:
+       mov       eax,[rdi+0C]
+       mov       [rdi+8],eax
+       jmp       short M01_L06
+M01_L03:
+       mov       edi,ecx
+       call      qword ptr [704F44907C18]
+       int       3
+M01_L04:
+       mov       r11,704F42E504E0
+       call      qword ptr [r11]
+       test      eax,eax
+       je        short M01_L07
+       mov       rdi,[rbp-20]
+       mov       r11,704F42E504E8
+       call      qword ptr [r11]
+       mov       r15d,eax
+       mov       rdi,[rbp-20]
+       jmp       short M01_L01
+M01_L05:
+       call      CORINFO_HELP_RNGCHKFAIL
+       int       3
+M01_L06:
+       mov       eax,ebx
+       add       rsp,18
+       pop       rbx
+       pop       r14
+       pop       r15
+       pop       rbp
+       ret
+M01_L07:
+       mov       rdi,[rbp-20]
+       mov       r11,704F42E504F0
+       call      qword ptr [r11]
+       jmp       short M01_L06
+       push      rbp
+       push      r15
+       push      r14
+       push      rbx
+       push      rax
+       mov       rbp,[rdi]
+       mov       [rsp],rbp
+       lea       rbp,[rbp+30]
+       cmp       qword ptr [rbp-20],0
+       je        short M01_L08
+       mov       rdi,[rbp-20]
+       mov       r15,[rdi]
+       mov       r14,offset MT_System.SZGenericArrayEnumerator<System.Int32>
+       cmp       r15,r14
+       je        short M01_L08
+       mov       r11,704F42E504F0
+       call      qword ptr [r11]
+M01_L08:
+       nop
+       add       rsp,8
+       pop       rbx
+       pop       r14
+       pop       r15
+       pop       rbp
+       ret
+; Total bytes of code 269
+```
+
+
+| Method | Runtime   |     Mean | Ratio | Code Size | Allocated | Alloc Ratio |
+|--------|-----------|---------:|------:|----------:|----------:|------------:|
+| Sum    | .NET 9.0  | 98.36 ns |  1.00 |     279 B |      32 B |        1.00 |
+| Sum    | .NET 10.0 | 43.95 ns |  0.45 |     195 B |         - |        0.00 | 
+
+With dynamic PGO, the instrumented code for Sum will see that values is generally an int[], 
+and it’ll be able to emit a specialized code path in the optimized Sum implementation for when it is. 
+And then with this ability to do conditional escape analysis,
+for the common path the JIT can see that the resulting GetEnumerator produces an IEnumerator<int> 
+that never escapes, such that along with all of the relevant methods being devirtualized and inlined, 
+the enumerator can be stack allocated.
 
 #### GDVBenchs
 
