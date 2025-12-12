@@ -54,4 +54,10 @@
            // the same
        }
       ```
-4. 
+4. Collections
+5. LINQ
+
+### Misc & Trivia
+
+1. Numeric Ordering
+2. 
