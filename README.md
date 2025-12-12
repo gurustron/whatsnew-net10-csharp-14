@@ -56,6 +56,9 @@
       ```
 4. Collections
 5. LINQ
+6. Regex
+   1. Rewrites
+   2. Methods `Count`
 
 ### Misc & Trivia
 

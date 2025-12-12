@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET10.Benchs", "..\NET10.Benchs\NET10.Benchs.csproj", "{E5197927-5101-4589-8844-7B0E95413900}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsNew.Regex", "..\WhatsNew.Regex\WhatsNew.Regex.csproj", "{E0E56432-01A3-4793-A9BD-59DA2BE2023F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsNew.Regex.NET9", "..\WhatsNew.Regex.NET9\WhatsNew.Regex.NET9.csproj", "{8EE87708-E539-40D1-BB98-8984B95BF24B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +35,13 @@ Global
 		{E5197927-5101-4589-8844-7B0E95413900}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5197927-5101-4589-8844-7B0E95413900}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5197927-5101-4589-8844-7B0E95413900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0E56432-01A3-4793-A9BD-59DA2BE2023F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E56432-01A3-4793-A9BD-59DA2BE2023F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E56432-01A3-4793-A9BD-59DA2BE2023F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E56432-01A3-4793-A9BD-59DA2BE2023F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EE87708-E539-40D1-BB98-8984B95BF24B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EE87708-E539-40D1-BB98-8984B95BF24B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EE87708-E539-40D1-BB98-8984B95BF24B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EE87708-E539-40D1-BB98-8984B95BF24B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
