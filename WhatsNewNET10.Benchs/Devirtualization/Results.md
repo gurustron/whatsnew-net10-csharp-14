@@ -36,8 +36,8 @@ public partial class Tests
 }
 ```
 
-| Method                | Runtime   | Mean       | Ratio | Allocated | Alloc Ratio |
-|---------------------- |---------- |-----------:|------:|----------:|------------:|
+| Method                | Runtime   |       Mean | Ratio | Allocated | Alloc Ratio |
+|-----------------------|-----------|-----------:|------:|----------:|------------:|
 | SumEnumerableViaArray | .NET 9.0  |   879.3 ns |  1.00 |      32 B |        1.00 |
 | SumEnumerableViaArray | .NET 10.0 |   725.5 ns |  0.83 |      32 B |        1.00 |
 |                       |           |            |       |           |             |
@@ -63,8 +63,8 @@ we only need the one with GetEnumerator interface call and then no more after th
 
 | Method               | Runtime   |     Mean | Ratio | Code Size |
 |----------------------|-----------|---------:|------:|----------:|
-| GenericEqualsStrings | .NET 9.0  | 2.122 ns |  1.00 |     203 B |
 | GenericEqualsStrings | .NET 10.0 | 1.605 ns |  0.76 |     215 B |                                                                                   
+| GenericEqualsStrings | .NET 9.0  | 2.122 ns |  1.00 |     203 B |
 
 ## .NET 10.0.0 (10.0.0, 10.0.25.52411), X64 RyuJIT x86-64-v3 (Job: .NET 10(Runtime=.NET 10.0))
 
@@ -395,8 +395,8 @@ M01_L08:
 
 | Method | Runtime   |     Mean | Ratio | Code Size | Allocated | Alloc Ratio |
 |--------|-----------|---------:|------:|----------:|----------:|------------:|
-| Sum    | .NET 9.0  | 98.36 ns |  1.00 |     279 B |      32 B |        1.00 |
 | Sum    | .NET 10.0 | 43.95 ns |  0.45 |     195 B |         - |        0.00 | 
+| Sum    | .NET 9.0  | 98.36 ns |  1.00 |     279 B |      32 B |        1.00 |
 
 With dynamic PGO, the instrumented code for Sum will see that values is generally an int[], 
 and it’ll be able to emit a specialized code path in the optimized Sum implementation for when it is. 
