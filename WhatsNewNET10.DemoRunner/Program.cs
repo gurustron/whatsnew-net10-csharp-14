@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 using WhatsNewNET10.DemoRunner.Demos;
 
-NumericOrderingsDemos.Do();
+NullConditionalAssignmentDemos.DoNotNull();
 // dotnet run -c Release -f net9.0
 // dotnet run -c Release -f net10.0
 // export DOTNET_JitDisasmSummary=1
