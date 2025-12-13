@@ -20,9 +20,7 @@ public class ArrayStackAllocBench
             }
 
             [MethodImpl(MethodImplOptions.NoInlining)]
-            static void Use(string input)
-            {
-            }
+            static void Use(string input) { }
         }
     }
 }
