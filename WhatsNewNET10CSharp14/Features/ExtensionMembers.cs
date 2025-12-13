@@ -47,8 +47,13 @@ public static class ExtensionProps
             get
             {
                 return 42;
+                // return field; // error CS9282: This member is not allowed in an extension block
             }
-            set { Console.WriteLine(value); }
+            set
+            {
+                Console.WriteLine(value);
+                // field = value; // error CS9282: This member is not allowed in an extension block
+            }
         }
     }
 }
