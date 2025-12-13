@@ -48,6 +48,9 @@ public class StopwatchStackAllocBench
         sw.Stop();
 
         return sw.Elapsed;
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        static void Nop(Stopwatch _) {}
     }
 
     [Benchmark]
@@ -58,8 +61,11 @@ public class StopwatchStackAllocBench
         sw.Stop();
 
         return sw.Elapsed;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static void NopInlined(Stopwatch _) {}
     }
-    
+
     [Benchmark]
     public TimeSpan WithStartNewPassByRef()
     {
@@ -68,17 +74,12 @@ public class StopwatchStackAllocBench
         sw.Stop();
 
         return sw.Elapsed;
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        static void NopByRef(ref Stopwatch _) {}
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]
     private static void Nop(){}
-    
-    [MethodImpl(MethodImplOptions.NoInlining)]
-    private static void Nop(Stopwatch _) {}
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static void NopInlined(Stopwatch _) {}
-
-    [MethodImpl(MethodImplOptions.NoInlining)]
-    private static void NopByRef(ref Stopwatch _) {}
 }
