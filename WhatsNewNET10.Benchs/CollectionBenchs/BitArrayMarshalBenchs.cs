@@ -3,7 +3,7 @@ using System.Numerics.Tensors;
 using System.Runtime.InteropServices;
 using BenchmarkDotNet.Attributes;
 
-namespace NET10.Benchs.CollectionBenchs;
+namespace WhatsNewNET10.Benchs.CollectionBenchs;
 
 [HideColumns("Job", "Error", "StdDev", "Median", "RatioSD")]
 public class BitArrayMarshalBenchs

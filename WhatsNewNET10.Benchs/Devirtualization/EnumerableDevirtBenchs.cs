@@ -1,14 +1,13 @@
 using System.Runtime.CompilerServices;
 using BenchmarkDotNet.Attributes;
 
-namespace NET10.Benchs.Devirtualization;
+namespace WhatsNewNET10.Benchs.Devirtualization;
 
 [MemoryDiagnoser(displayGenColumns: false)]
 [HideColumns("Job", "Error", "StdDev", "Median", "RatioSD")]
 [DisassemblyDiagnoser]
 public class EnumerableDevirtualizationBenchs
 {
-
     private int[] _values = Enumerable.Range(1, 100).ToArray();
 
     [Benchmark]

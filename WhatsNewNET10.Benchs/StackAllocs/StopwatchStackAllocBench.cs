@@ -2,7 +2,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using BenchmarkDotNet.Attributes;
 
-namespace NET10.Benchs.StackAllocs;
+namespace WhatsNewNET10.Benchs.StackAllocs;
 
 [MemoryDiagnoser(displayGenColumns: false)]
 // [DisassemblyDiagnoser]

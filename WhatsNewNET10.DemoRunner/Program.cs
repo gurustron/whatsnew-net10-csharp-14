@@ -8,7 +8,7 @@ const int Iterations = 100_000;
 const int Cycles = 30;
 
 Console.WriteLine($"Running {Environment.Version}, {Iterations} per cycle, {Cycles} cycles...");
-
+int[] values = Enumerable.Range(1, 100).ToArray();
 var sw = Stopwatch.StartNew();
 
 for (int c = 0; c < Cycles; c++)
@@ -18,7 +18,7 @@ for (int c = 0; c < Cycles; c++)
 
     for (int i = 0; i < Iterations; i++)
     {
-        Test();
+        Test(values);
     }
     sw.Stop();
     
@@ -26,8 +26,26 @@ for (int c = 0; c < Cycles; c++)
     var elapsed = sw.Elapsed.TotalNanoseconds;
     Console.WriteLine($"{c:00}: {elapsed / Iterations:N0} ns, {diffMem / Iterations:N0} bytes");
 } 
+
+// g__Test|0_0
 [MethodImpl(MethodImplOptions.NoInlining)]
-static void Test() // g__Test|0_0
+static void Test(IEnumerable<int> values)
+{
+    int sum = 0;
+    foreach (int value in values)
+    {
+        sum += value;
+    }
+
+    Use(sum);
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    static void Use(int input)
+    {
+    }
+}
+
+static void TestStackObjectAllocations()
 {
     Process(new string[] { "a", "b", "c" });
 
@@ -46,22 +64,18 @@ static void Test() // g__Test|0_0
     }
 }
 
-[MethodImpl(MethodImplOptions.NoInlining)]
-static void TestStackObjectAllocations()
+static void TestIEnumerableDevirtualization(IEnumerable<int> values)
 {
-    Process(new string[] { "a", "b", "c" });
-
-    // Should be inlined which will allow the array to be stack allocated
-    static void Process(string[] inputs) 
+    int sum = 0;
+    foreach (int value in values)
     {
-        foreach (string input in inputs)
-        {
-            Use(input);
-        }
+        sum += value;
+    }
 
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        static void Use(string input)
-        {
-        }
+    Use(sum);
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    static void Use(int input)
+    {
     }
 }

@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace NET10.Benchs.LINQ;
+namespace WhatsNewNET10.Benchs.LINQ;
 
 // TODO
 [MemoryDiagnoser(displayGenColumns: false)]

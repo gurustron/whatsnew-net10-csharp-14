@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using BenchmarkDotNet.Attributes;
 
-namespace NET10.Benchs.Devirtualization;
+namespace WhatsNewNET10.Benchs.Devirtualization;
 
 [HideColumns("Job", "Error", "StdDev", "Median", "RatioSD")]
 [DisassemblyDiagnoser]

@@ -2,11 +2,7 @@
 using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
-using NET10.Benchs.BoundsChecking;
-using NET10.Benchs.CollectionBenchs;
-using NET10.Benchs.Devirtualization;
-using NET10.Benchs.LINQ;
-using NET10.Benchs.StackAllocs;
+using WhatsNewNET10.Benchs.LINQ;
 
 var config = DefaultConfig.Instance
     .AddJob(Job.Default.WithId(".NET 9").WithRuntime(CoreRuntime.Core90).AsBaseline())

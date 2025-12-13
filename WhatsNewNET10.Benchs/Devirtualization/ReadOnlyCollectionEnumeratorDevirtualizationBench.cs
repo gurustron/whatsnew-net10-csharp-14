@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using BenchmarkDotNet.Attributes;
 
-namespace NET10.Benchs.Devirtualization;
+namespace WhatsNewNET10.Benchs.Devirtualization;
 
 [MemoryDiagnoser]
 [HideColumns("Job", "Error", "StdDev", "Median", "RatioSD")]

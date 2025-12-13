@@ -1,6 +1,6 @@
 using BenchmarkDotNet.Attributes;
 
-namespace NET10.Benchs.BoundsChecking;
+namespace WhatsNewNET10.Benchs.BoundsChecking;
 
 [DisassemblyDiagnoser]
 [HideColumns("Job", "Error", "StdDev", "Median", "RatioSD", "value")]

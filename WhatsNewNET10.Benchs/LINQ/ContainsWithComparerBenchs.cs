@@ -1,6 +1,6 @@
 using BenchmarkDotNet.Attributes;
 
-namespace NET10.Benchs.LINQ;
+namespace WhatsNewNET10.Benchs.LINQ;
 
 [HideColumns("Job", "Error", "StdDev", "Median", "RatioSD")]
 public class ContainsWithComparerBenchs
