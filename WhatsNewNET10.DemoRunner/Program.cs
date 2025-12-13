@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 // dotnet run -c Release -f net9.0
 // dotnet run -c Release -f net10.0
@@ -50,7 +51,7 @@ static void TestStackObjectAllocations()
     Process(new string[] { "a", "b", "c" });
 
     // Should be inlined which will allow the array to be stack allocated
-    static void Process(string[] inputs) 
+    static void Process(string[] inputs)
     {
         foreach (string input in inputs)
         {
