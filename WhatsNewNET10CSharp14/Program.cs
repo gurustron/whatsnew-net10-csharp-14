@@ -2,8 +2,9 @@
 using WhatsNewCSharp14.Features;
 using WhatsNewCSharp14.Tests;
 
+int.DoSomething();
 long.DoSomethingLong();
-42L.DoSomethingInstance();
+42L.DoSomething();
 
 int doSomething = ExtensionMembers.DoSomething();
 

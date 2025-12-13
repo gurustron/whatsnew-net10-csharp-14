@@ -6,7 +6,7 @@
 1. The null-conditional member access operators, `?.` and `?[]`, 
    can now be used on the left hand side of an assignment or compound assignment.
 2. Lambda parameters improvements 
-3. New partial members - ctors and events
+3. New partial members – ctors and events
 4. Field Keyword
 5. User Defined Compound Assignment
 6. Extension members

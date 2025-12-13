@@ -23,11 +23,8 @@ public static class ExtensionMembers
     // static and instance
     extension(long name /*named receiver parameter*/) 
     {
-        // Type 'MyExtensionMembers' already defines a member called 'DoSomething'
-        // with the same parameter types
-        public long DoSomething() => name;
+        public long DoSomething() => name; // 42L.DoSomething()
         public static long DoSomethingLong() => 42;
-        public long DoSomethingInstance() => name; // 42L.DoSomethingInstance()
     }
 
     extension(int name /*named receiver parameter*/) 
@@ -36,8 +33,6 @@ public static class ExtensionMembers
         // with the same parameter types
         // public int DoSomething() => name;
     }
-
-    public static IEnumerable<TResult> Cast<TResult>(this IEnumerable source) => throw new Exception();
 }
 
 public static class ExtensionProps
