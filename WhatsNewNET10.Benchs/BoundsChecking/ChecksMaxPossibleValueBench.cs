@@ -4,6 +4,7 @@ namespace WhatsNewNET10.Benchs.BoundsChecking;
 
 [DisassemblyDiagnoser]
 [HideColumns("Job", "Error", "StdDev", "Median", "RatioSD", "value")]
+[MemoryDiagnoser(displayGenColumns: false)]
 public class ChecksMaxPossibleValueBench
 {
     private static ReadOnlySpan<byte> data =>
