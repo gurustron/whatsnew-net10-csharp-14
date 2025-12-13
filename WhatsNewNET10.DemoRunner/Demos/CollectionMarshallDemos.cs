@@ -9,7 +9,7 @@ public class CollectionMarshallDemos
     {
         List<int> list = Enumerable.Sequence(start: 1, endInclusive: 7, step: 1).ToList();
         var span = CollectionsMarshal.AsSpan(list);
-        Random.Shared.Shuffle(span);
+        Random.Shared.Shuffle(span); // in-place
         Console.WriteLine(string.Join(",", list));
         Environment.Exit(0);
     }

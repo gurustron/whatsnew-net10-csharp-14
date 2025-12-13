@@ -8,6 +8,7 @@ public class ShuffleDemos
         List<int> list = Enumerable.Sequence(start: 1, endInclusive: 7, step: 1).ToList();
         IEnumerable<int> result = list.Shuffle();
         Console.WriteLine(string.Join(",", result));
+        Console.WriteLine(string.Join(",", list));
         Environment.Exit(0);
     }
 #endif
