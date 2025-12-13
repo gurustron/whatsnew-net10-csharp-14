@@ -395,8 +395,8 @@ M01_L08:
 
 | Method | Runtime   |     Mean | Ratio | Code Size | Allocated | Alloc Ratio |
 |--------|-----------|---------:|------:|----------:|----------:|------------:|
-| Sum    | .NET 10.0 | 43.95 ns |  0.45 |     195 B |         - |        0.00 | 
 | Sum    | .NET 9.0  | 98.36 ns |  1.00 |     279 B |      32 B |        1.00 |
+| Sum    | .NET 10.0 | 43.95 ns |  0.45 |     195 B |         - |        0.00 | 
 
 With dynamic PGO, the instrumented code for Sum will see that values is generally an int[], 
 and it’ll be able to emit a specialized code path in the optimized Sum implementation for when it is. 
