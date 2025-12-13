@@ -2,6 +2,9 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+using WhatsNewNET10.DemoRunner.Demos;
+
+ShuffleDemos.Do();
 // dotnet run -c Release -f net9.0
 // dotnet run -c Release -f net10.0
 // export DOTNET_JitDisasmSummary=1
