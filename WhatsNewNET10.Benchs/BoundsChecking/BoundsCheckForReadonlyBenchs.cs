@@ -19,7 +19,7 @@ public class BoundsCheckForReadonlyBenchs
         }
         return r;
     }
-    
+
     [Benchmark]
     public int SumMutable()
     {
@@ -30,7 +30,7 @@ public class BoundsCheckForReadonlyBenchs
         }
         return r;
     }
-    
+
     [Benchmark]
     public int SumLocalCopy()
     {

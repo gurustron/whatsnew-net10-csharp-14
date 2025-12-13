@@ -50,8 +50,8 @@ M00_L00:
 ; Total bytes of code 34
 ```
 
-| Method | Runtime   | Mean      | Code Size |
-|------- |---------- |----------:|----------:|
+| Method | Runtime   |      Mean | Code Size |
+|--------|-----------|----------:|----------:|
 | Read   | .NET 9.0  | 0.0020 ns |      35 B |
 | Read   | .NET 10.0 | 0.0022 ns |      14 B |                                                                                  
 
