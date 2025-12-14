@@ -70,13 +70,13 @@ public class StopwatchStackAllocBench
     public TimeSpan WithStartNewPassByRef()
     {
         Stopwatch sw = Stopwatch.StartNew();
-        NopByRef(ref sw);
+        NopByRef(in sw);
         sw.Stop();
 
         return sw.Elapsed;
 
         [MethodImpl(MethodImplOptions.NoInlining)]
-        static void NopByRef(ref Stopwatch _) {}
+        static void NopByRef(in Stopwatch _) {}
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]

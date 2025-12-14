@@ -2,6 +2,7 @@
 
 public class NullConditionalAssignmentDemos
 {
+#if NET10_0_OR_GREATER
     public static void DoNull()
     {
         List<int>? list = null;
@@ -40,4 +41,5 @@ public class NullConditionalAssignmentDemos
 
         Environment.Exit(0);
     }
+#endif
 }

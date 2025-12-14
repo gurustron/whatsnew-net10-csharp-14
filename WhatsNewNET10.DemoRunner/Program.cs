@@ -4,15 +4,14 @@ using System.Runtime.InteropServices;
 
 using WhatsNewNET10.DemoRunner.Demos;
 
-NullConditionalAssignmentDemos.DoNotNull();
 // dotnet run -c Release -f net9.0
 // dotnet run -c Release -f net10.0
 // export DOTNET_JitDisasmSummary=1
-const int Iterations = 100_000;
+const int Iterations = 100;
 const int Cycles = 30;
 
 Console.WriteLine($"Running {Environment.Version}, {Iterations} per cycle, {Cycles} cycles...");
-int[] values = Enumerable.Range(1, 100).ToArray();
+int[] values = Enumerable.Range(1, 100_000).ToArray();
 var sw = Stopwatch.StartNew();
 
 for (int c = 0; c < Cycles; c++)
@@ -35,18 +34,9 @@ for (int c = 0; c < Cycles; c++)
 [MethodImpl(MethodImplOptions.NoInlining)]
 static void Test(IEnumerable<int> values)
 {
-    int sum = 0;
-    foreach (int value in values)
-    {
-        sum += value;
-    }
-
-    Use(sum);
-
+    var result = values.Order().Contains(-1);
     [MethodImpl(MethodImplOptions.NoInlining)]
-    static void Use(int input)
-    {
-    }
+    static void Use(int val) {}
 }
 
 static void TestStackObjectAllocations()
@@ -82,4 +72,11 @@ static void TestIEnumerableDevirtualization(IEnumerable<int> values)
     static void Use(int input)
     {
     }
+}
+
+static void TestLinqContains(IEnumerable<int> values)
+{
+    var result = values.Order().Contains(-1);
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    static void Use(int val) {}
 }
