@@ -4,6 +4,8 @@ using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using WhatsNewNET10.DemoRunner.Demos;
 
+FirstClassSpansDemos.Do();
+
 // dotnet run -c Release -f net9.0
 // dotnet run -c Release -f net10.0
 // export DOTNET_JitDisasmSummary=1
