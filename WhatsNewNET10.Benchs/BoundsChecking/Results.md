@@ -90,8 +90,8 @@ M00_L00:
 
 | Method       | Runtime   |      Mean | Code Size |
 |--------------|-----------|----------:|----------:|
-| TestBitMagic | .NET 10.0 | 0.0547 ns |      20 B |
 | TestBitMagic | .NET 9.0  | 0.0863 ns |      36 B |
+| TestBitMagic | .NET 10.0 | 0.0547 ns |      20 B |
 
 #### StartEndCheckBench
 
