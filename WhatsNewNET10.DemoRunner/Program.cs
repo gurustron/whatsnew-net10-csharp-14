@@ -26,7 +26,7 @@ for (int c = 0; c < Cycles; c++)
 
     for (int i = 0; i < Iterations; i++)
     {
-        TestRegexMatchesCount(regex, input);
+        Test();
     }
 
     sw.Stop();
@@ -38,7 +38,7 @@ for (int c = 0; c < Cycles; c++)
 
 // g__Test|0_0
 [MethodImpl(MethodImplOptions.NoInlining)]
-static void Test(IEnumerable<int> values)
+static void Test()
 {
     Process(new string[] { "a", "b", "c" });
 
@@ -70,9 +70,7 @@ static void TestStackObjectAllocations()
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
-        static void Use(string input)
-        {
-        }
+        static void Use(string _) { }
     }
 }
 
@@ -87,9 +85,7 @@ static void TestIEnumerableDevirtualization(IEnumerable<int> values)
     Use(sum);
 
     [MethodImpl(MethodImplOptions.NoInlining)]
-    static void Use(int input)
-    {
-    }
+    static void Use(int _) { }
 }
 
 static void TestLinqContains(IEnumerable<int> values)
@@ -110,5 +106,5 @@ static void TestRegexMatchesCount(Regex regex, string input)
     Use(result); 
 
     [MethodImpl(MethodImplOptions.NoInlining)]
-    static void Use(int val) {}
+    static void Use(int _) {}
 }
