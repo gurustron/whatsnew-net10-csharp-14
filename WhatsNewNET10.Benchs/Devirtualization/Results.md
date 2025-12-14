@@ -36,6 +36,13 @@ public partial class Tests
 }
 ```
 
+| Method        |       Mean | Ratio | Allocated | Alloc Ratio |
+|---------------|-----------:|------:|----------:|------------:|
+| SumEnumerable |   958.8 ns |  1.00 |      32 B |        1.00 |
+| SumForLoop    | 3,350.9 ns |  1.00 |         - |          NA |
+
+Full Bench:
+
 | Method                | Runtime   |       Mean | Ratio | Allocated | Alloc Ratio |
 |-----------------------|-----------|-----------:|------:|----------:|------------:|
 | SumEnumerableViaArray | .NET 9.0  |   879.3 ns |  1.00 |      32 B |        1.00 |

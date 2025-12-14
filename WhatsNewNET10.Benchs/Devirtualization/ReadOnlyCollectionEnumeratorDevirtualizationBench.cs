@@ -11,7 +11,7 @@ public class ReadOnlyCollectionEnumeratorDevirtualizationBench
         = new(Enumerable.Range(1, 1000).ToArray());
     private readonly ReadOnlyCollection<int> _listViaList
         = new(Enumerable.Range(1, 1000).ToList());
-
+    
     [Benchmark]
     public int SumEnumerableViaArray()
     {
@@ -20,25 +20,25 @@ public class ReadOnlyCollectionEnumeratorDevirtualizationBench
         {
             sum += item;
         }
-
+    
         return sum;
     }
-
+    
     [Benchmark]
     public int SumForLoopViaArray()
     {
         ReadOnlyCollection<int> list = _listViaArray;
         int sum = 0;
         int count = list.Count;
-
+    
         for (int i = 0; i < count; i++)
         {
             sum += _listViaArray[i];
         }
-
+    
         return sum;
     }
-
+    
     [Benchmark]
     public int SumEnumerableViaList()
     {
@@ -47,10 +47,10 @@ public class ReadOnlyCollectionEnumeratorDevirtualizationBench
         {
             sum += item;
         }
-
+    
         return sum;
     }
-
+    
     [Benchmark]
     public int SumForLoopViaList()
     {
@@ -61,7 +61,7 @@ public class ReadOnlyCollectionEnumeratorDevirtualizationBench
         {
             sum += _listViaList[i];
         }
-
+    
         return sum;
     }
 }

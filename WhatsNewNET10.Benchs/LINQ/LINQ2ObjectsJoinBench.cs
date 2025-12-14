@@ -2,7 +2,7 @@
 
 namespace WhatsNewNET10.Benchs.LINQ;
 
-// TODO
+#if NET10_0_OR_GREATER
 [MemoryDiagnoser(displayGenColumns: false)]
 [HideColumns("Job", "Error", "StdDev", "Median", "RatioSD")]
 public class LINQ2ObjectsJoinBench
@@ -26,3 +26,4 @@ public class LINQ2ObjectsJoinBench
             .GroupJoin(inner, outerKeySelector, innerKeySelector, (o, inners) => (o, inners))
             .SelectMany(x => x.inners.DefaultIfEmpty(), (x, i) => resultSelector(x.o, i));
 }
+#endif

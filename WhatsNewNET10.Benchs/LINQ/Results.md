@@ -43,3 +43,11 @@ source.TryGetSpan<TSource>(out span)
 |                        |           |              |       |           |             |
 | WhereSelectContains    | .NET 9.0  |  1,492.85 ns |  1.00 |     104 B |        1.00 |
 | WhereSelectContains    | .NET 10.0 |    304.55 ns |  0.20 |     104 B |        1.00 |
+
+
+#### LINQ2ObjectsBenchs
+
+| Method          |     Mean | Ratio | Allocated | Alloc Ratio |
+|-----------------|---------:|------:|----------:|------------:|
+| LeftJoin_Manual | 42.81 us |  1.00 |  65.84 KB |        1.00 |                                                                                                     
+| LeftJoin_Linq   | 21.30 us |  0.50 |  36.95 KB |        0.56 |
