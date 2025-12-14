@@ -88,6 +88,11 @@ M00_L00:
 ; Total bytes of code 36
 ```
 
+| Method       | Runtime   |      Mean | Code Size |
+|--------------|-----------|----------:|----------:|
+| TestBitMagic | .NET 10.0 | 0.0547 ns |      20 B |
+| TestBitMagic | .NET 9.0  | 0.0863 ns |      36 B |
+
 #### StartEndCheckBench
 
 ## .NET 10.0.0 (10.0.0, 10.0.25.52411), X64 RyuJIT x86-64-v3 (Job: .NET 10(Runtime=.NET 10.0))
@@ -134,3 +139,8 @@ M00_L00:
        int       3
 ; Total bytes of code 41
 ```
+
+| Method             | Runtime   |      Mean | Code Size |
+|--------------------|-----------|----------:|----------:|
+| StartAndEndAreSame | .NET 9.0  | 0.0832 ns |      41 B |
+| StartAndEndAreSame | .NET 10.0 | 0.0120 ns |      34 B |                                                                                                   
