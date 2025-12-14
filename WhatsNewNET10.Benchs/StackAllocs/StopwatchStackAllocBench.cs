@@ -31,9 +31,9 @@ public class StopwatchStackAllocBench
     }
 
     [Benchmark]
-    public Stopwatch WithStartNewReturn()
+    public Stopwatch WithNewReturn()
     {
-        Stopwatch sw = Stopwatch.StartNew();
+        Stopwatch sw = new Stopwatch();
         Nop();
         sw.Stop();
 

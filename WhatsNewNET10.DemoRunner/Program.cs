@@ -9,12 +9,15 @@ using WhatsNewNET10.DemoRunner.Demos;
 // export DOTNET_JitDisasmSummary=1
 const int Iterations = 100_000;
 const int Cycles = 30;
-
+Console.WriteLine("----------------");
 Console.WriteLine($"Running {Environment.Version}, {Iterations} per cycle, {Cycles} cycles...");
+Console.WriteLine("----------------");
+// Prepared Data
 int[] values = Enumerable.Range(1, 100_000).ToArray();
 var regex = new Regex(@"[a-z]+");
 var input = "abc12323qwhgehg/sdad/sads+_)*&^%$#@!";
 var sw = Stopwatch.StartNew();
+// End of Prepared Data
 
 for (int c = 0; c < Cycles; c++)
 {
@@ -25,6 +28,7 @@ for (int c = 0; c < Cycles; c++)
     {
         TestRegexMatchesCount(regex, input);
     }
+
     sw.Stop();
     
     var diffMem = GC.GetAllocatedBytesForCurrentThread() - allocated;
@@ -36,9 +40,21 @@ for (int c = 0; c < Cycles; c++)
 [MethodImpl(MethodImplOptions.NoInlining)]
 static void Test(IEnumerable<int> values)
 {
-    var result = values.Order().Contains(-1);
-    [MethodImpl(MethodImplOptions.NoInlining)]
-    static void Use(int val) {}
+    Process(new string[] { "a", "b", "c" });
+
+    // Should be inlined which will allow the array to be stack allocated
+    static void Process(string[] inputs)
+    {
+        foreach (string input in inputs)
+        {
+            Use(input);
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        static void Use(string input)
+        {
+        }
+    }
 }
 
 static void TestStackObjectAllocations()
