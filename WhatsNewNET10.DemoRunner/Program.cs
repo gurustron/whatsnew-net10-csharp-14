@@ -2,9 +2,10 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
+using WhatsNewCSharp14.Features;
 using WhatsNewNET10.DemoRunner.Demos;
 
-FirstClassSpansDemos.Do();
+UserDefinedCompoundAssignment.Do();
 
 // dotnet run -c Release -f net9.0
 // dotnet run -c Release -f net10.0

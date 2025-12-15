@@ -41,9 +41,9 @@ public class StopwatchStackAllocBench
     }
 
     [Benchmark]
-    public TimeSpan WithStartNewPass()
+    public TimeSpan WithNewPass()
     {
-        Stopwatch sw = Stopwatch.StartNew();
+        Stopwatch sw = new Stopwatch();
         Nop(sw);
         sw.Stop();
 
@@ -54,9 +54,9 @@ public class StopwatchStackAllocBench
     }
 
     [Benchmark]
-    public TimeSpan WithStartNewPassInlined()
+    public TimeSpan WithNewPassInlined()
     {
-        Stopwatch sw = Stopwatch.StartNew();
+        Stopwatch sw = new Stopwatch();
         NopInlined(sw);
         sw.Stop();
 
@@ -67,9 +67,9 @@ public class StopwatchStackAllocBench
     }
 
     [Benchmark]
-    public TimeSpan WithStartNewPassByRef()
+    public TimeSpan WithNewPassByRef()
     {
-        Stopwatch sw = Stopwatch.StartNew();
+        Stopwatch sw = new Stopwatch();
         NopByRef(in sw);
         sw.Stop();
 

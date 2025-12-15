@@ -7,37 +7,36 @@
 | WithNew | .NET 10.0 | 44.13 ns |  0.76 |         - |        0.00 |                                                                                 
 
 
-| Method                  | Runtime   |     Mean | Allocated |
-|-------------------------|-----------|---------:|----------:|
-| WithStartNew            | .NET 10.0 | 36.27 ns |         - |
-| WithNewReturn           | .NET 10.0 | 12.38 ns |      40 B |
-| WithStartNewPass        | .NET 10.0 | 47.60 ns |      40 B |
-| WithStartNewPassInlined | .NET 10.0 | 36.96 ns |         - |
-| WithStartNewPassByRef   | .NET 10.0 | 47.31 ns |      40 B |
-
+| Method             | Runtime   |       Mean | Allocated |
+|--------------------|-----------|-----------:|----------:|
+| WithStartNew       | .NET 10.0 | 56.4123 ns |         - |
+| WithNewReturn      | .NET 10.0 | 16.8273 ns |      40 B |
+| WithNewPass        | .NET 10.0 | 17.2411 ns |      40 B |
+| WithNewPassInlined | .NET 10.0 |  0.0104 ns |         - |
+| WithNewPassByRef   | .NET 10.0 | 17.4512 ns |      40 B |
 
 
 Full:
 
-| Method                  | Runtime   |     Mean | Ratio | Allocated | Alloc Ratio |
-|-------------------------|-----------|---------:|------:|----------:|------------:|
-| WithNew                 | .NET 10.0 | 36.43 ns |  0.72 |         - |        0.00 |                                                                                 
-| WithNew                 | .NET 9.0  | 50.66 ns |  1.00 |      40 B |        1.00 |
-|                         |           |          |       |           |             |
-| WithStartNew            | .NET 10.0 | 36.27 ns |  0.70 |         - |        0.00 |
-| WithStartNew            | .NET 9.0  | 52.04 ns |  1.00 |      40 B |        1.00 |
-|                         |           |          |       |           |             |
-| WithStartNewReturn      | .NET 10.0 | 12.38 ns |  0.87 |      40 B |        1.00 |
-| WithStartNewReturn      | .NET 9.0  | 14.19 ns |  1.00 |      40 B |        1.00 |
-|                         |           |          |       |           |             |
-| WithStartNewPass        | .NET 10.0 | 47.60 ns |  0.92 |      40 B |        1.00 |
-| WithStartNewPass        | .NET 9.0  | 52.10 ns |  1.00 |      40 B |        1.00 |
-|                         |           |          |       |           |             |
-| WithStartNewPassInlined | .NET 10.0 | 36.96 ns |  0.75 |         - |        0.00 |
-| WithStartNewPassInlined | .NET 9.0  | 49.42 ns |  1.00 |      40 B |        1.00 |
-|                         |           |          |       |           |             |
-| WithStartNewPassByRef   | .NET 10.0 | 47.31 ns |  0.93 |      40 B |        1.00 |
-| WithStartNewPassByRef   | .NET 9.0  | 51.00 ns |  1.00 |      40 B |        1.00 |
+| Method             | Runtime   |       Mean | Ratio | Allocated | Alloc Ratio |
+|--------------------|-----------|-----------:|------:|----------:|------------:|
+| WithNew            | .NET 10.0 | 57.1759 ns |  0.75 |         - |        0.00 |                                                                                    
+| WithNew            | .NET 9.0  | 76.7428 ns |  1.00 |      40 B |        1.00 |
+|                    |           |            |       |           |             |
+| WithStartNew       | .NET 10.0 | 56.4123 ns |  0.69 |         - |        0.00 |
+| WithStartNew       | .NET 9.0  | 82.2947 ns |  1.01 |      40 B |        1.00 |
+|                    |           |            |       |           |             |
+| WithNewReturn      | .NET 10.0 | 16.8273 ns |  0.71 |      40 B |        1.00 |
+| WithNewReturn      | .NET 9.0  | 24.1056 ns |  1.01 |      40 B |        1.00 |
+|                    |           |            |       |           |             |
+| WithNewPass        | .NET 10.0 | 17.2411 ns |  0.81 |      40 B |        1.00 |
+| WithNewPass        | .NET 9.0  | 21.3854 ns |  1.01 |      40 B |        1.00 |
+|                    |           |            |       |           |             |
+| WithNewPassInlined | .NET 10.0 |  0.0104 ns | 0.000 |         - |        0.00 |
+| WithNewPassInlined | .NET 9.0  | 21.2641 ns | 1.016 |      40 B |        1.00 |
+|                    |           |            |       |           |             |
+| WithNewPassByRef   | .NET 10.0 | 17.4512 ns |  0.90 |      40 B |        1.00 |
+| WithNewPassByRef   | .NET 9.0  | 19.3476 ns |  1.00 |      40 B |        1.00 |
 
 | Method                  | Runtime   |     Mean | Ratio | Allocated | Alloc Ratio |
 |-------------------------|-----------|---------:|------:|----------:|------------:|
